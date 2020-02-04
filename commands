@@ -1,7 +1,13 @@
-ps -ef | grep -i 'redis-server'  
+-Already use:
+ps -ef | grep -i 'redis-server'
+
+1
+sudo kill -9 PID
+
+2
 sudo nano /etc/redis/redis.conf  
     bind 127.0.0.1 ::1   ->   bind 127.0.0.1   ->   bind 127.0.0.1 ::1
+sudo service redis-server stop
 
-sudo kill -9 <PID>
-
+-Celery:
 celery worker -A image_parroter --loglevel=info
